@@ -10,9 +10,17 @@ const initData = [
 ]
 export default function App() {
   const [todos, setTodos] = useState(initData)
+  const updateTodo = (id, label) => {
+    // const todoIndex = todos.findIndex(t => t.id === id)
+    // const todosBefore = todos.slice(0, todoIndex)
+    // const todosAfter = todos.slice(todoIndex + 1)
+    // const newtodo = { ...todos[todoIndex], label }
+    // setTodos([...todosBefore, newtodo, ...todosAfter]);
+    setTodos((todos) => todos.map((todo) => todo.id !== id ? todo : { id: id, label: label }))
+  }
   return (
     <View style={styles.container}>
-      <TodoList todos={todos} />
+      <TodoList updateTodoLabel={updateTodo} todos={todos} />
       <StatusBar style="dark" />
     </View>
   );
