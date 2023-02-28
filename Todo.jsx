@@ -11,7 +11,9 @@ function Todo(props) {
     const renderShowMode = () => (
         <View style={styles.container}>
             <Text>{label}</Text>
-            <Button title="Edit" onPress={onEditPress} />
+            <Button title="Edit" onPress={onEditPress}
+                style={{ flexGrow: 1, flexBasis: '0%', flexShrink: 0 }}
+            />
         </View>
     )
     const renderEditMode = () => (
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         margin: 5,
-        alignItems: "center"
+        alignItems: "center",
     },
     editMode: {
         flexDirection: "row",
